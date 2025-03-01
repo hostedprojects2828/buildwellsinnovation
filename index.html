@@ -206,6 +206,9 @@
     </section>
 
     <!-- end about section -->
+    <a onclick="sendMessage()" class="whatsapp-float" target="_blank" id="whatsappButton">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
 
     <!-- service section -->
     <section class="service_section layout_padding">
@@ -507,23 +510,38 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-6 col-md-8 mx-auto">
-              <form>
+              <form id="sendMessage">
                 <div class="form-row">
                   <div class="form-group col-md-6">
-                    <input type="text" class="form-control" id="inputName4" placeholder="Name " />
+                    <input type="text" class="form-control" name="name" id="name" placeholder="Name" required />
+                    <p id="name_val"></p>
                   </div>
                   <div class="form-group col-md-6">
-                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email id" />
+                    <input
+                      class="form-control"
+                      type="number"
+                      name="phone"
+                      id="phone"
+                      maxlength="10"
+                      required
+                      oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                      placeholder="Phone"
+                    />
+                    <p id="phone_val"></p>
                   </div>
                 </div>
                 <div class="form-row">
                   <div class="form-group col">
-                    <input type="text" class="form-control" id="inputSubject4" placeholder="Subject" />
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Email" required />
+                    <p id="email_val"></p>
                   </div>
                 </div>
+
                 <div class="form-group">
-                  <input type="text" class="form-control" id="inputMessage" placeholder="Message" />
+                  <textarea name="message" class="form-control" id="message" rows="4" placeholder="Message"></textarea>
+                  <p id="message_val"></p>
                 </div>
+                <p id="mail_send"></p>
                 <div class="d-flex justify-content-center">
                   <button type="submit" class="">Send</button>
                 </div>
@@ -601,9 +619,11 @@
       </section>
       <!-- footer section -->
     </div>
-
+    <script src="https://kit.fontawesome.com/857255a119.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
     <script type="text/javascript" src="js/custom.js"></script>
+    <script type="module" src="js/index.js"></script>
   </body>
 </html>
